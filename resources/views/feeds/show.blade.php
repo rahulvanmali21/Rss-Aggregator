@@ -24,6 +24,7 @@
                                     @else
                                         
                                     @endif
+                                    <p class="text-muted">{{$tag}}</p>
                                     <p class="card-text">{{ $value }}</p>
                                 @endif
                             @endforeach

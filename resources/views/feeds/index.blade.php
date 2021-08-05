@@ -3,7 +3,8 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            @if ($rssFeed)
+
+            @if (count($rssFeed) >0)
             @foreach ($rssFeed as $Feed)
             <div class="list-group">
                 <a href="{{route('feeds.view',["rssFeed"=>$Feed])}}" class="list-group-item list-group-item-action">{{$Feed->title}}</a>
@@ -11,6 +12,9 @@
             @endforeach
             @else
             No Feeds
+              <div class="text-center py-3">
+                <a href="{{route('feeds.create')}}" class="btn btn-sm btn-outline-primary">Add Url</a>
+              </div>
             @endif
         </div>
     </div>
