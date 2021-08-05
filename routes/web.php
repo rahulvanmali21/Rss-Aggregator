@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\FeedController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FeedController::class,"home"])->name('feeds.home');
+Route::get('/create', [FeedController::class,"create"])->name('feeds.create');
+Route::post('/store', [FeedController::class,"store"])->name('feeds.store');
+Route::get('/feeds/{rssFeed}', [FeedController::class,"show"])->name('feeds.view');
+
